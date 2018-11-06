@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "vscode 插件 markdown-schedule-snippet"
-categories: JavaScript
-tags: 效率 vscode markdown
-author: HyG
+title:  "About Me"
+categories: Resume
+tags: Azure Cloud O365 markdown
+author: dovives
 ---
 
 * content
