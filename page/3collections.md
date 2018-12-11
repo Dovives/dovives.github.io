@@ -9,13 +9,13 @@ type: page
 * content
 {:toc}
 
-## 工具
+## Azure
 
-* [box-shadow generator](http://www.cssmatic.com/box-shadow)
+* [Azure Notes](https://azurenotes.tech/ServiceNotes)
 
-    生成 box-shadow 的工具。
+    See all Azure Services Updates 
 
-* [gradient-generator](http://www.cssmatic.com/gradient-generator)
+* [Ressources explorer](http://www.cssmatic.com/gradient-generator)
 
     渐变生成器。
 
@@ -45,7 +45,7 @@ type: page
 - [google fonts](https://fonts.google.com/)
   - [Google Fonts 加速代理](https://fengmk2.com/blog/2016/google-fonts-mirror)
 
-## 编程语言
+## DevOps
 
 ### JavaScript
 
