@@ -184,7 +184,7 @@ In order to use our image in Azure, I choose to push my image in an Azure Contai
 
 I created a standard registry and call it "Pithcoun": 
 
-    ![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/Post1/AzureContainerRegistryInfo.jpg)
+![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/Post1/AzureContainerRegistryInfo.jpg)
 
 Then I use the Azure CLI commands to deploy my local image in Azure COntainer Registry : 
 
