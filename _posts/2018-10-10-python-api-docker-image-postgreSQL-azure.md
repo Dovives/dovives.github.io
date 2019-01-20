@@ -37,19 +37,18 @@ To protect my DB in Azure, I activated the PostgreSQL Firewall and add  my compu
 In order to use my Azure PostgreSQL DB hosted in Azure within my Python API,  I have first modify the DB settings in the settings.py file (created in the Python tutorial). 
 
 ``` Python
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'demotech3db',
-        'USER': 'postgres@pgdemotech3',
-        'PASSWORD' : 'xxxxx',
-        'HOST': 'pgdemotech3.postgres.database.azure.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'demotech3db',
+            'USER': 'postgres@pgdemotech3',
+            'PASSWORD' : 'xxxxx',
+            'HOST': 'pgdemotech3.postgres.database.azure.com',
+            'PORT': '5432',
+            'OPTIONS': {
+                'sslmode': 'require',
+            },
         },
-    },
 ```
 
 In my Python environment, I also added the following Python packages : 
