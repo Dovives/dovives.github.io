@@ -17,7 +17,7 @@ I decided to writte my first article on "How to deploy a docker image of a Pytho
 
 To create my Python API, I used the following [Python tutorial](https://www.django-rest-framework.org/tutorial/quickstart/). This tutorial provide a API to manage user and groups.  
 
-![Python API UI Demo](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/PythonAPI_UI.png.jpg)
+![Python API UI Demo](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/PythonAPI_UI.png.jpg)
 
 Below, I highlight the most important steps in the Python API docker Image creation & config that I used to deploy this solution in Azure. 
 
@@ -25,11 +25,11 @@ Below, I highlight the most important steps in the Python API docker Image creat
 
 The Python API described in the tutorial rely on a local DB. As I expected to host my API in Azure, I created my DB direct in Azure and used a PostgreSQL DB. 
 
-![Azure PostgreSQL DB Configuration](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLConfig.jpg)
+![Azure PostgreSQL DB Configuration](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLConfig.jpg)
 
 To protect my DB in Azure, I activated the PostgreSQL Firewall and add  my computer local IP address and the Azure Web App Outbound IP Adresses (talk about this point later in this article). 
 
-![Azure PostgreSQL DB Firewall Configuration](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLFWConfig.jpg)
+![Azure PostgreSQL DB Firewall Configuration](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLFWConfig.jpg)
 
 
 ### Python config for Azure PostgreSQL DB 
@@ -75,9 +75,10 @@ Then I run the following command to test my API locally :
 
 ## The swagger generation & configuration of my Python API  
 
-To go a bit further with this Python API, I generated a swagger to describe this API. To do so, I rely on the following [tutorial](https://github.com/axnsan12/drf-yasg/#usage)
+To go a bit further with this Python API, I generated a swagger to describe this API. To do so, I rely on the following [tutorial](https://raw.githubusercontent.com/axnsan12/drf-yasg/#usage)
 
-![Python API Swagger screenshot](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/PythonAPI_Swagger.jpg)
+![Python API Swagger screenshot](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/PythonAPI_Swagger.jpg)
+
 
 
 ### Install the Python Package 
@@ -116,7 +117,7 @@ then in the urls.py file, I added the following URL patterns and add the swagger
 
 ### Generate the swagger file for your API 
 
-To generate the swager file, I used the following [tool](https://github.com/swagger-api/swagger-codegen) to generate the swagger files of my API. 
+To generate the swager file, I used the following [tool](https://raw.githubusercontent.com/swagger-api/swagger-codegen) to generate the swagger files of my API. 
 
 I created a swagger folder un my API project root folder where I placed all the swagger generated file above. 
 
@@ -181,7 +182,7 @@ In order to use our image in Azure, I choose to push my image in an Azure Contai
 
 I created a standard registry and call it "Pithcoun": 
 
-    ![Azure Container Registry](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/AzureContainerRegistryInfo.jpg)
+    ![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/AzureContainerRegistryInfo.jpg)
 
 Then I use the Azure CLI commands to deploy my local image in Azure COntainer Registry : 
 
@@ -216,7 +217,7 @@ docker push pitchoun.azurecr.io/demoapitech3:1.0
 
 #### Check image availability in my Azure Container registry 
 
-    ![Azure Container Registry](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/AzureContainerRegistryInfo.jpg)
+    ![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/AzureContainerRegistryInfo.jpg)
 
 
 ## Create my Azure Container Web App relying on ACR  
@@ -227,22 +228,22 @@ Now that my Python image is available in Azure Container regristry, as well as m
 
 When creating the Web App for container, choose "Linux" OS & "Docker Image" option: 
 
-![Azure Web App Container](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/Azure_Web_App_Container_wizard.jpg)
+![Azure Web App Container](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/Azure_Web_App_Container_wizard.jpg)
 
 Then in the Conainer menu, I choose my ACR and my image :
 
-![Azure Web App Container Settings](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/WebApp_Container_Settings.jpg)
+![Azure Web App Container Settings](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/WebApp_Container_Settings.jpg)
 
 Then create it. 
 
-![Azure Web App Container Info](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/WebApp_Container_Info.jpg)
+![Azure Web App Container Info](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/WebApp_Container_Info.jpg)
 
 #### Retrieve the outbounds IP for Azure PostgreSQL DB Firewall config. 
 
 
 Now that our Web App is created,  we need to allow the outbound IP addresses of Web App on the Azure PostgreSQL DB.
 
-![Azure PostgreSQL FW Config ](https://github.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLFWConfig.jpg)
+![Azure PostgreSQL FW Config ](https://raw.githubusercontent.com/Dovives/dovives.github.io/blob/master/images/Post1/AzurePostgreSQLFWConfig.jpg)
 
 #### Test your web Application access 
 
