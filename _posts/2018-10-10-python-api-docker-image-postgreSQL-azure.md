@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deploy Python API docker image on Azure with Azure PostgreSQL DB  "
+title:  "Deploy Python API Docker image in Azure Web App"
 categories: Azure
 tags: Azure Cloud Python Docker Image ACR WAC DevOps
 author: dovives
@@ -11,7 +11,7 @@ author: dovives
 
 ## Description 
 
-I decided to writte my first article on "How to deploy a docker image of a Python API in Azure thanks to ACR and Web App for Container." To go a bit further with this API, I also generated a swagger to describe this API. 
+I decided to writte my first article on "How to deploy a docker image of a Python API in Azure Web App for Container thanks to ACR thanks to Azure Container services" To go a bit further with this API, I also generated a swagger/OpenAPI which described this API".
 
 ## The Python API configuration for Azure PostgreSQL  
 
@@ -37,18 +37,18 @@ To protect my DB in Azure, I activated the PostgreSQL Firewall and add  my compu
 In order to use my Azure PostgreSQL DB hosted in Azure within my Python API,  I have first modify the DB settings in the settings.py file (created in the Python tutorial). 
 
 ```
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'demotech3db',
-            'USER': 'postgres@pgdemotech3',
-            'PASSWORD' : 'xxxxx',
-            'HOST': 'pgdemotech3.postgres.database.azure.com',
-            'PORT': '5432',
-            'OPTIONS': {
-                'sslmode': 'require',
-            },
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'demotech3db',
+        'USER': 'postgres@pgdemotech3',
+        'PASSWORD' : 'xxxxx',
+        'HOST': 'pgdemotech3.postgres.database.azure.com',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
         },
+    },
 ```
 
 In my Python environment, I also added the following Python packages : 
@@ -226,7 +226,8 @@ Then I use the Azure CLI commands to deploy my local image in Azure COntainer Re
 
 #### Check image availability in my Azure Container registry 
 
-    ![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/Post1/AzureContainerRegistryInfo.jpg)
+
+![Azure Container Registry](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/Post1/AzureContainerRegistryInfo.jpg)
 
 
 ## Create my Azure Container Web App relying on ACR  
