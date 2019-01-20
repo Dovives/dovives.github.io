@@ -36,7 +36,7 @@ To protect my DB in Azure, I activated the PostgreSQL Firewall and add  my compu
 
 In order to use my Azure PostgreSQL DB hosted in Azure within my Python API,  I have first modify the DB settings in the settings.py file (created in the Python tutorial). 
 
-''' Python
+``` Python
 
 DATABASES = {
     'default': {
@@ -50,28 +50,28 @@ DATABASES = {
             'sslmode': 'require',
         },
     },
-'''
+```
 
 In my Python environment, I also added the following Python packages : 
-'''
+```
     Django==2.1.1
     djangorestframework==3.8.2
     psycopg2-binary==2.7.5
-'''
+```
 
 ### Test Azure the Python API with Azure PostgreSQL DB 
 
 First I've following the Python tutorial and created an admin user for my API :
 
-'''
+```
     python manage.py createsuperuser --email dovives@example.com --username admin
-'''
+```
 
 Then I run the following command to test my API locally : 
 
-'''
+```
     python.exe  manage.py runserver 0.0.0.0:8000
-'''
+```
 
 ## The swagger generation & configuration of my Python API  
 
@@ -89,7 +89,7 @@ I used the following command 'pip install -U drf-yasg' to install the correct py
 
 First tn the settings.py file, I added the 'drf_yasg" application :
 
-'''python
+```python
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -100,11 +100,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
 ]
-'''
+```
 
 then in the urls.py file, I added the following URL patterns and add the swagger ones: 
 
-'''python
+```python
     urlpatterns = [
         url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
         url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
@@ -112,7 +112,7 @@ then in the urls.py file, I added the following URL patterns and add the swagger
         path('admin/', admin.site.urls),
         path('api/', include(router.urls)),
     ]
-'''
+```
 
 ### Generate the swagger file for your API 
 
@@ -148,7 +148,7 @@ In oder to generate an image of my Python API, I rely on python 3.6 image.
 
 I've created the following docker file to create my image : 
 
-'''
+```
     FROM python:3.6
     ENV PYTHONUNBUFFERED 1
     RUN mkdir /code
@@ -160,7 +160,7 @@ I've created the following docker file to create my image :
     RUN pip install -r ./pitchounrestapi/requirements.txt 
     EXPOSE 8000
     CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-'''
+```
 
 Then run the following Docker commands to build and run my image :
 
