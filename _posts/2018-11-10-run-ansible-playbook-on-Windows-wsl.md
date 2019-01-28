@@ -97,13 +97,13 @@ You can check with Windows host with :
 
 # Run Azure Playbook 
 
-## Install Azure Module 
+## Install Azure Module for ANSIBLE
 
 First install Azure Module : 
 
 - ```pip install ansible[azure]```
 
-## Downlaod Azure Sample from Github
+## Downlaod Azure samples from Github
 
 Azure team already provide a list of playbook that yon can play with OOB: 
 [](https://github.com/Azure-Samples/ansible-playbooks)
@@ -117,7 +117,7 @@ When available on your local machine, you can access them from WSL from :
 
 - ```/mnt/<drive>/<windowspath>```
 
-## Add Azure Credential or login with Az CLI
+## Add Azure Credentials or Login on Azure with Az CLI
 
 They are three options to authenticate on Azure in order to run ANSIBLE PLaybook on Azure. 
 
