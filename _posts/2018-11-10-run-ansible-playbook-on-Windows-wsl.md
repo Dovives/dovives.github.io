@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Step by Step - Run ANSIBLE Playbook on Windows Subsysem for linux"
+title:  "Step by Step - Run ANSIBLE Azure Playbook on WSL"
 categories: ANSIBLE
 tags: Azure Cloud ANSIBLE InfraAsCode 
 author: dovives
@@ -14,7 +14,9 @@ author: dovives
 I thought it might be useful for others to run ANSIBLE playbook for Azure on Windows thanks to WSL 
 
 
-# Prerequisites    
+
+
+# Prerequisites for WSL on Windows   
 
 ## Windows version 
 
@@ -25,9 +27,9 @@ You can run the  `winver` command to check you current build OS (in CMD, Start, 
 ![Windows Version with winver](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/20181110-Ansible-on-WSL/WinVer.png.jpg)
 
 
-## WSL Installation on WIndows    
+## WSL Installation on Windows    
 
-First I make sure WSL feature is activated on your Windows machine. 
+First make sure WSL feature is activated on your Windows machine. 
 
 Start PowerShell as administrator and run the following command :
 
@@ -40,6 +42,9 @@ Then, download Ubuntu distros using the following command :
 If you've already installed WSL, I recommand using the latest distros version otherwise to update : `sudo do-release-upgrade`
 
 To check your current Distros version run `screenfetch` in WSL. 
+
+
+
 
 # ANSIBLE Installation on WSL 
 
@@ -71,13 +76,13 @@ Add your ansible managed hosts into the `hosts` file (use `vi`) :
 
 If you use a Windows Machine, make sure to have configure your Windows Host correctly : 
 
-[WinRM Setup for ANSIBLE](https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html)
+- [WinRM Setup for ANSIBLE](https://docs.ansible.com/ansible/latest/user_guide/windows_setup.html)
 
-## test connectivity and authentication 
+## Test connectivity and authentication 
 
 To confirm ANSIBLE execute correctly, we will simply execute a ansible ping command (linux example below): 
 
-- ```ansible Linux -m ping --private-key "EC2_Credentials.pem" -u ec2-user``
+- ```ansible Linux -m ping --private-key "EC2_Credentials.pem" -u ec2-user```
 
 ![ANSIBLE Ping Linux](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/20181110-Ansible-on-WSL/ANSIBLE_Ping_LinuxVM.jpg)
 
@@ -86,6 +91,9 @@ You can check with Windows host with :
 - ```ansible Windows -i ./hosts -m win_ping -u user@domain.com```
 
 ![ANSIBLE Ping Windows](https://raw.githubusercontent.com/Dovives/dovives.github.io/master/images/20181110-Ansible-on-WSL/ANSIBLE_Ping_WindowsVM.jpg)
+
+
+
 
 # Run Azure Playbook 
 
@@ -186,6 +194,8 @@ Note: Make sure to be in the correct directory or specify the whole path to the 
 [Ansible role azure_preview_modules](https://galaxy.ansible.com/Azure/azure_preview_modules/)
 
 [Ansible Galaxy](http://galaxy.ansible.com) for example roles from the Ansible community for deploying many popular applications. 
+
+
 
 
 
